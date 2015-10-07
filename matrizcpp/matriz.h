@@ -1,5 +1,8 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
+#include <iostream>
+
+using namespace std;
 
 class Matriz{
   int nlin;
@@ -8,6 +11,13 @@ class Matriz{
 public:
   Matriz(int _nlin=0, int _ncol=0);
   ~Matriz();
+  // a funcao operator<< eh declarada como amiga
+  // para acelerar o processo de acesso aos elementos
+  // da matriz
+  friend ostream& operator<<(ostream& os, Matriz& m);
+  float& operator()(int i, int j);
+  void random();
+  void operator+(Matriz &m);
 };
 
 #endif // MATRIZ_H
