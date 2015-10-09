@@ -11,6 +11,7 @@ int main(){
   cout << "m = " << m << endl;
   cout << "n = " << n << endl;
   o=m+n;
+  cout << "o = " << o << endl;
   cout << endl;
   return 0;
 }

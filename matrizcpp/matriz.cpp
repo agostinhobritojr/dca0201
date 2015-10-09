@@ -1,3 +1,5 @@
+//-----matriz.cpp--------8<----cut here -------
+
 #include "matriz.h"
 #include <cstdlib>
 
@@ -16,6 +18,22 @@ Matriz::Matriz(int _nlin, int _ncol){
     x[i] = x[i-1] + ncol;
   }
 }
+
+// construtor de copia
+Matriz::Matriz(Matriz &m){
+  nlin = m.nlin;
+  ncol = m.ncol;
+  x = new float*[ncol];
+  x[0] = new float[nlin*ncol];
+  for(int i=1; i<nlin; i++){
+    x[i] = x[i-1] + ncol;
+  }
+  // copia os elementos da matriz de referencia
+  for(int i=0; i<nlin*ncol; i++){
+    x[0][i] = m.x[0][i];
+  }
+}
+
 
 Matriz::~Matriz(){
   if(x != 0){
@@ -64,17 +82,61 @@ float& Matriz::operator()(int i, int j){
   return(x[i][j]);
 }
 
-void Matriz::operator+(Matriz &m){
+Matriz Matriz::operator+(Matriz &m){
   Matriz ret(nlin,ncol);
   for(int i=0; i<nlin*ncol; i++){
     ret.x[0][i] = x[0][i] + m.x[0][i];
   }
-  cout <<ret;
+  return (ret);
 }
 
+Matriz Matriz::operator=(const Matriz &m){
+  // verificar se a matriz repassada
+  // eh a propria matriz que processa a
+  // operacao
+
+  // se o endereco de m eh igual ao endereco
+  // do proprio objeto, retorne o proprio objeto
+  // ex: Matriz m; m=m;
+  if(&m == this){
+    return(*this);
+  }
+
+  // erro
+  if(x[0] != 0){
+    delete [] x[0];
+    if(x != 0){
+      delete [] x;
+    }
+  }
 
 
+  // o/o/o/o/o/
+  // libera a matriz porventura alocada
+  /*
+  if(x != 0){
+    if(x[0] != 0){
+      delete [] x[0];
+    }
+    delete [] x;
+  }
+  */
+  // aloca a nova matriz
+  nlin = m.nlin;
+  ncol = m.ncol;
+  x = new float*[nlin];
+  x[0] = new float[nlin*ncol];
+  for(int i=1; i<nlin; i++){
+    x[i] = x[i-1] + ncol;
+  }
+  // copia os elementos da matriz de referencia
+  for(int i=0; i<nlin*ncol; i++){
+    x[0][i] = m.x[0][i];
+  }
+  return(*this);
+}
 
+//------------------8<----cut here --------------
 
 
 
