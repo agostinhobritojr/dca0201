@@ -6,10 +6,12 @@ CONFIG -= qt
 SOURCES += main.cpp \
     figurageometrica.cpp \
     retangulo.cpp \
-    tela.cpp
+    tela.cpp \
+    circulo.cpp
 
 HEADERS += \
     figurageometrica.h \
     retangulo.h \
-    tela.h
+    tela.h \
+    circulo.h
 
