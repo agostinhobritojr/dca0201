@@ -8,10 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
   ui(new Ui::MainWindow)
 {
   ui->setupUi(this);
+ /*
   connect(ui->pushButtonQuit, // emissor do sinal
           SIGNAL(clicked(bool)), // sinal
           this, // receptor
           SLOT(mataTudo())); // slot do receptor
+ */
 }
 
 MainWindow::~MainWindow()
@@ -25,3 +27,10 @@ void MainWindow::mataTudo(){
   msg.exec();
   exit(0);
 }
+
+void MainWindow::copiaTexto(){
+  ui->textEdit->setText(ui->lineEdit->text());
+}
+
+
+
