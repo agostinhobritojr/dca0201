@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dialogvalue.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,11 @@ public:
 
 private:
   Ui::MainWindow *ui;
+  // estabeleca variaveis de classe para
+  // os dialogos quando for necessario que
+  // seus campos permanecam inalterados em
+  // sucessivas chamadas do dialogo
+  DialogValue d;
 
 public slots:
   void mataTudo();

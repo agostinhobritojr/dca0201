@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>388</width>
-    <height>359</height>
+    <width>479</width>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>9</x>
@@ -47,13 +47,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>142</y>
-      <width>370</width>
-      <height>127</height>
+      <x>270</x>
+      <y>10</y>
+      <width>191</width>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -75,13 +75,23 @@
      </item>
     </layout>
    </widget>
+   <widget class="Senoide" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>130</y>
+      <width>271</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>388</width>
+     <width>479</width>
      <height>20</height>
     </rect>
    </property>
@@ -98,14 +108,14 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="actionQuit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionQuit">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources.qrc">
      <normaloff>:/resources/caveira.svg</normaloff>:/resources/caveira.svg</iconset>
    </property>
    <property name="text">
@@ -117,7 +127,17 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>Senoide</class>
+   <extends>QWidget</extends>
+   <header>senoide.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButtonQuit</sender>

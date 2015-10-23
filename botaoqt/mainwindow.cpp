@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <cstdlib>
 #include <QMessageBox>
-#include "dialogvalue.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -30,7 +30,7 @@ void MainWindow::mataTudo(){
 }
 
 void MainWindow::copiaTexto(){
-  DialogValue d;
+
   d.exec();
   QMessageBox msg;
 

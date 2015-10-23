@@ -12,3 +12,10 @@ DialogValue::~DialogValue()
 {
   delete ui;
 }
+
+QString DialogValue::getValor()
+{
+  // devolve o QString armazenado no lineEdit
+  return ui->lineEdit->text();
+}
+

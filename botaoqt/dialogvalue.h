@@ -14,6 +14,7 @@ class DialogValue : public QDialog
 public:
   explicit DialogValue(QWidget *parent = 0);
   ~DialogValue();
+  // retorna o valor armazenado no lineEdit
   QString getValor();
 
 private:

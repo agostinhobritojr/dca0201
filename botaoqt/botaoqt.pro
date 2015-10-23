@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    dialogvalue.cpp
+    dialogvalue.cpp \
+    senoide.cpp
 
 HEADERS  += mainwindow.h \
-    dialogvalue.h
+    dialogvalue.h \
+    senoide.h
 
 FORMS    += mainwindow.ui \
     dialogvalue.ui
