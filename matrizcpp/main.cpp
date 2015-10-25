@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-  Matriz m(3,4), n(3,4), o;
+  Matriz m(3,4), n(4,3), o;
 //  m(1,2) = -8;
   m.random();
   n.random();

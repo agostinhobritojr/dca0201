@@ -103,9 +103,9 @@ Matriz Matriz::operator=(const Matriz &m){
   }
 
   // erro
-  if(x[0] != 0){
-    delete [] x[0];
-    if(x != 0){
+  if(x != 0){
+    if(x[0] != 0){
+      delete [] x[0];
       delete [] x;
     }
   }
