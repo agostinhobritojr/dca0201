@@ -92,6 +92,7 @@ ostream& operator<<(ostream& os, Matriz<T,U>& m){
   return os;
 }
 
+
 template <class T, class U>
 void Matriz<T,U>::print(){
   cout << "[" ;
@@ -148,7 +149,6 @@ Matriz<T,U> Matriz<T,U>::operator=(const Matriz<T,U> &m){
   }
 
   // erro
-  cout << x << endl;
   if(x != 0){
     if(x[0] != 0){
       delete [] x[0];
