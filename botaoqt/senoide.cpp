@@ -40,7 +40,7 @@ void Senoide::paintEvent(QPaintEvent *e){
   p.drawLine(0,height()/2,width(),height()/2);
 
   // desenha uma senoide em cor azul
-  float w;
+  float w=1;
   float t;
   int x0, y0, x1, y1;
 
@@ -51,7 +51,7 @@ void Senoide::paintEvent(QPaintEvent *e){
   for(int i=0; i<width(); i=i+5){
     t = (float) i / width() * 2*3.14;
     x1 = i;
-    y1 = height()/2 - height()/2 * sin(t+teta);
+    y1 = height()/2 - height()/2 * sin(w*t+teta);
     p.drawLine(x0,y0,x1,y1);
     x0 = x1; y0 = y1;
   }
