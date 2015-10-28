@@ -6,13 +6,18 @@
 #include <cmath>
 
 Senoide::Senoide(QWidget *parent) : QWidget(parent){
-  startTimer(100);
+  startTimer(30);
   teta=0;
+  deltaTeta = 0;
 }
 
 void Senoide::timerEvent(QTimerEvent *e){
-  teta+=0.03;
+  teta+=deltaTeta;
   repaint();
+}
+
+void Senoide::mudaVelocidade(int _deltaTeta){
+  deltaTeta = (float)_deltaTeta/100.0;
 }
 
 void Senoide::paintEvent(QPaintEvent *e){

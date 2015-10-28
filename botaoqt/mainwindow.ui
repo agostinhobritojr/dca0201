@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>479</width>
-    <height>425</height>
+    <width>441</width>
+    <height>417</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,49 +80,64 @@
      <rect>
       <x>20</x>
       <y>120</y>
-      <width>271</width>
+      <width>221</width>
       <height>161</height>
      </rect>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_2">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>130</y>
-      <width>160</width>
-      <height>16</height>
+      <x>260</x>
+      <y>110</y>
+      <width>171</width>
+      <height>151</height>
      </rect>
     </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QSlider" name="horizontalSlider_3">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>170</y>
-      <width>160</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QSlider" name="horizontalSlider_4">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>210</y>
-      <width>160</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QSlider" name="horizontalSliderVel">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Vel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSlider" name="horizontalSliderFreq">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Freq</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QSlider" name="horizontalSliderAmpl">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Ampl</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -130,7 +145,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>479</width>
+     <width>441</width>
      <height>20</height>
     </rect>
    </property>
@@ -172,6 +187,11 @@
    <extends>QWidget</extends>
    <header>senoide.h</header>
    <container>1</container>
+   <slots>
+    <slot>mudaVelocidade(int)</slot>
+    <slot>mudaFrequencia(int)</slot>
+    <slot>mudaAmplitude(int)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources>
@@ -185,8 +205,8 @@
    <slot>mataTudo()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>266</x>
-     <y>53</y>
+     <x>251</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -201,12 +221,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>104</x>
-     <y>145</y>
+     <x>94</x>
+     <y>88</y>
     </hint>
     <hint type="destinationlabel">
-     <x>144</x>
-     <y>146</y>
+     <x>164</x>
+     <y>92</y>
     </hint>
    </hints>
   </connection>
@@ -217,12 +237,12 @@
    <slot>copiaTexto()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>151</x>
-     <y>252</y>
+     <x>301</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
-     <x>70</x>
-     <y>235</y>
+     <x>347</x>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
@@ -233,12 +253,12 @@
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>88</x>
-     <y>206</y>
+     <x>271</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
-     <x>100</x>
-     <y>303</y>
+     <x>271</x>
+     <y>142</y>
     </hint>
    </hints>
   </connection>
@@ -255,6 +275,22 @@
     <hint type="destinationlabel">
      <x>193</x>
      <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderVel</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>mudaVelocidade(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>

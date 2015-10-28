@@ -9,7 +9,7 @@ class Senoide : public QWidget
 
 private:
   float teta;
-
+  float deltaTeta;
 public:
   explicit Senoide(QWidget *parent = 0);
   void paintEvent(QPaintEvent *e);
@@ -17,6 +17,7 @@ public:
 signals:
 
 public slots:
+  void mudaVelocidade(int _deltaTeta);
 };
 
 #endif // SENOIDE_H
