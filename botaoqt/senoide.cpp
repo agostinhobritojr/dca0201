@@ -4,20 +4,43 @@
 #include <QBrush>
 #include <QColor>
 #include <cmath>
+#include <QDebug>
+#include <QMouseEvent>
 
 Senoide::Senoide(QWidget *parent) : QWidget(parent){
-  startTimer(30);
+  startTimer(1);
   teta=0;
   deltaTeta = 0;
+  frequencia = 0;
+  amplitude = 0;
 }
 
 void Senoide::timerEvent(QTimerEvent *e){
+  Q_UNUSED(e);
   teta+=deltaTeta;
   repaint();
 }
 
+// incluir qmouseevent e qdebug no header desse arquivo
+void Senoide::mousePressEvent(QMouseEvent *e)
+{
+//  qDebug() << e->x();
+  qDebug() << QString().setNum(e->x());
+  emit meuX(QString().setNum(e->x()));
+}
+
 void Senoide::mudaVelocidade(int _deltaTeta){
-  deltaTeta = (float)_deltaTeta/100.0;
+  deltaTeta = (float)_deltaTeta/100;
+}
+
+void Senoide::mudaFrequencia(int _frequencia)
+{
+  frequencia = (float)_frequencia/100;
+}
+
+void Senoide::mudaAmplitude(int _amplitude)
+{
+  amplitude = (float)_amplitude/100;
 }
 
 void Senoide::paintEvent(QPaintEvent *e){
@@ -52,11 +75,12 @@ void Senoide::paintEvent(QPaintEvent *e){
   pen.setColor(Qt::blue);
   p.setPen(pen);
   x0=0;
-  y0=height()/2 - height()/2* sin(teta);
+  y0=height()/2 - amplitude * height()/2* sin(teta);
   for(int i=0; i<width(); i=i+5){
     t = (float) i / width() * 2*3.14;
     x1 = i;
-    y1 = height()/2 - height()/2 * sin(w*t+teta);
+    y1 = height()/2 -
+        amplitude * height()/2 * sin(frequencia*t+teta);
     p.drawLine(x0,y0,x1,y1);
     x0 = x1; y0 = y1;
   }
