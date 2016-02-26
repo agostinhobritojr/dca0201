@@ -1,0 +1,18 @@
+#include <stdio.h>
+void troca(int x,
+int z;
+printf("troca -
+z = x; x = y; y
+printf("troca -
+}
+int y){
+x = %d, y=%d \n", x, y);
+= z;
+x = %d, y=%d \n", x, y);
+int main(void){
+int x, y;
+x = 3; y = 4;
+printf("main - x = %d, y=%d \n", x, y);
+troca(x,y);
+printf("main - x = %d, y=%d \n", x, y);
+}
