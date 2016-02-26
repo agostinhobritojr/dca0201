@@ -10,6 +10,6 @@ int main(void){
   *px = 4;
   printf("x  = %d\n",x);
   px = 0;
-  *px = 4;
-  printf("x  = %d\n",x);
+  //  *px = 4;
+  printf("x  = %d\n",*px);
 }
