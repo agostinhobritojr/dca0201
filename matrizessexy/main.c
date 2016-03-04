@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int **x;
+  int nl=3, nc=4;
+  int i,j;
+  // aloca array auxiliar
+  x = (int**) malloc(nl*sizeof(int*));
+  // aloca linha unica com a matriz
+  x[0] = (int*) malloc(nc*nl*sizeof(int));
+  // realinha os enderecos de x
+  for(i=1; i<nl; i++){
+    x[i]=x[i-1]+nc;
+  }
+  for(i=0; i<nl; i++){
+    for(j=0; j<nc; j++){
+      x[i][j]=rand()%20;
+      printf("%3d", x[i][j]);
+    }
+    printf("\n");
+  }
+  free(x[0]);
+  free(x);
+  return 0;
+}
+
