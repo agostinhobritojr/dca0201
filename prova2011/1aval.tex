@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{epsfig}
+\usepackage{multicol}
+%\usepackage{noitemsep}
+\usepackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage{fancyheadings}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{geometry}
+% As margens
+\geometry{left=2.0cm, top=2.0cm, bottom=2.0cm, right=2cm}
+ 
+\renewcommand{\labelenumii}{\alph{enumii})}
+\newcommand{\lacuna}{(\hspace*{5mm}) }
+
+\begin{document}
+\begin{flushright}\scshape
+  Universidade Federal do Rio Grande do Norte\\
+  Centro de Tecnologia\\
+  Departamento de Engenharia da Computação e Automação\\
+  \rule{\linewidth}{1pt}
+\end{flushright}
+
+\begin{center}\Large
+DCA0201 -- Paradigmas de programação (1\raisebox{0.5ex}{\small a} avaliação - 2011.2)\\
+\end{center}
+\noindent Aluno:\hrulefill \vspace{2mm} Matrícula: \rule{2.5cm}{0.4pt}
+
+\begin{enumerate}
+\item (10,0 pontos) A seguinte figura representa os caminhos que podem ser seguidos dentro das vias de trânsito de uma cidade. Cada círculo representa um cruzamento de ruas e as setas indicam as ruas que levam de um cruzamento a outro. As ruas são sempre em mão única, ou seja, os carros podem caminhar somente em uma direção. Assim, por exemplo, um motorista pode dirigir do cruzamento 1 para o cruzamento 2, mas nunca do 2 para o 1.
+\begin{center}
+  \includegraphics[width=\linewidth]{transito.pdf}
+\end{center}
+Com base nesta descrição, realize o que se pede:
+\begin{enumerate}
+\item (2,0 pontos)Escreva um conjunto de fatos em linguagem prolog capaz de descrever como as ruas interconectam os cruzamentos do sistema de trânsito mostrado na figura acima.
+\item (4,0 pontos)Escreva um predicado {\tt caminho/2} capaz de informar se é possível para um motorista dirigir de um cruzamento até outro sem entrar na contramão.
+\item (2,0 pontos) Use o ambiente de inferências do prolog para responder se é possível chegar do cruzamento 5 ao cruzamento 10.
+\item (2,0 pontos) Use o ambiente de inferências do prolog para responder que cruzamentos é possível chegar partindo do cruzamento 13.
+\end{enumerate}
+\item (10 pontos) As seis palavras da lista abaixo precisam ser colocadas no quebra-cabeças da figura mostrada. 
+  \begin{multicols}{2}
+    \begin{itemize}
+  \item CABEDAL
+  \item CANELAS
+  \item CESAREO
+  \item DEBATER
+  \item FAREJAR
+  \item LATERAL
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=.5\linewidth]{quebracabecas.pdf}
+  \end{center}
+\end{multicols}
+  Escreva um predicado {\tt cruzada/6} que calcule as diferentes maneiras de organizar estas palavras na grade do quebra-cabeças. O predicado deverá funcionar da forma
+
+\begin{verbatim}
+?- cruzada(A,B,C,D,E,F).
+\end{verbatim}
+  devendo retornar em cada variável (A,B,C,...) as possíveis ocorrências que satisfazem o quebra-cabeças.
+
+\item (10 pontos) Derivadas são usadas na solução de diversos problemas em engenharia. As mais simples de calcular geralmente são as derivadas de polinômios. Por exemplo, a derivada de
+  \begin{equation}
+    \label{eq:funcao}
+    f(x) = 4x^2+6x+2
+  \end{equation}
+  é igual a 
+  \begin{displaymath}
+    g(x) = 8x+6
+  \end{displaymath}
+Crie uma função em LISP que receba uma lista com os coeficientes de um polinômio para ser derivado e retorne um outra lista com os coeficientes do polinômio resultante da derivação, como ilustra o exemplo seguinte para a equação \ref{eq:funcao}:
+\begin{verbatim}
+[3]>(deriv '(4 6 2))
+(8 6)
+[4]>
+\end{verbatim}
+\item (10,0 pontos) Exibir o polinômio da questão anterior na forma de uma lista é pouco elegante. Visando resolver este contratempo, crie uma função em LISP capaz de receber a lista que contenha os coeficientes do polinômio e imprima o polinômio correspondente de forma mais parecida com sua representação natural, como mostra o exemplo seguinte para a mesma equação \ref{eq:funcao}.
+\begin{verbatim}
+[5]> (exibe '(4 6 2))
+4*x^2+6*x^1+2
+NIL
+[6]> 
+\end{verbatim}
+\end{enumerate}
+Instruções: (ESCOLHA 3 OU 4 QUESTÕES PARA RESPONDER E INDIQUE NO RELATÓRIO DA PROVA QUAIS AS QUESTÕES QUE VOCÊ ESCOLHEU PARA RESPONDER) Cada questão tem ponderação de 10 pontos. O total final de pontos da prova será igual ao somatório de pontos obtidos dividido por 3 ou 4, caso o número de questões escolhidas para responder tenha sido 3 ou 4, respectivamente. Assim, se o aluno integralizou, por exemplo, 27 pontos e escolheu 3 questões para responder, sua nota da prova será igual a $27/3=9,0$ pontos. Consulte a documentação que achar necessária {\bf apenas no computador}. Prepare um relatório em texto simples (usando emacs ou gedit, por exemplo) conforme modelo apresentado no SIGAA. Apresente os comentários que sejam necessários para o bom entendimento da sua resposta, bem como as cópias dos códigos fontes no dentro do proprio relatório. Submeta sua solução no SIGAA. {\bf A cópia é proibida, sob pena de nulidade do exame!}
+
+\end{document}
