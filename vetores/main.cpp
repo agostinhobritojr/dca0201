@@ -1,43 +1,20 @@
 #include <iostream>
-#include <cmath>
+#include "vetor.h"
 
 using namespace std;
 
-class Vetor{
-private: // visiveis somente pela classe
-  float x, y;
-public: // visiveis por todos
-  void setX(float mx){
-    x = mx;
-  }
-  float getX(void){
-    return (x);
-  }
-  void setY(float _y){
-    y = _y;
-  }
-  float getY(void){
-    return (y);
-  }
-  void print(void){
-    cout << "(" << x << ", " << y << ")";
-  }
-  float modulo(void){
-    return(sqrt(x*x+y*y));
-  }
-  float angulo(void){
-    return(atan(y/x));
-  }
-}; // <=== ATENCAO!!!
-
-
 int main(){
-  Vetor v1;
-  v1.print();
-  cout << endl;
-  v1.setX(4);
-  v1.setY(3);
-  v1.print();
+  Vetor v1, v2, v3;
+  v1.setX(3);
+  v1.setY(4);
+  v2.setX(-1);
+  v2.setY(9);
+  v3 = v1.soma(v2);
+  cout << "x= " << v3.getX() << endl;
+  cout << "y= " << v3.getY() << endl;
+
+  cout << sizeof(v3)
+          ;
   cout << endl;
   cout << v1.modulo() << endl;
   cout << v1.angulo() << endl;
