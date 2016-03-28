@@ -55,7 +55,7 @@ delete t;
 
 t = new Teste[10];
 t[3].print();
-delete t;
+delete [] t;
 
 return 0;
 }
