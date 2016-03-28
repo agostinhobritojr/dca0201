@@ -4,6 +4,25 @@
 
 using namespace std;
 
+//Vetor::Vetor(){
+//  x = y = 0;
+//}
+
+Vetor::Vetor(float mx, float my){
+  cout << "construtor normal\n";
+  x = mx; y = my;
+}
+
+Vetor::Vetor(Vetor &v){
+  cout << "construtor de copia\n";
+  x = v.x; y = v.y;
+}
+
+Vetor::~Vetor(){
+  cout << "destrutor\n";
+  x = 0; y = 0;
+}
+
 void Vetor::setX(float mx){
   x =  mx;
 }
@@ -33,6 +52,12 @@ Vetor Vetor::soma(Vetor v2){
   return (ret);
 }
 
+Vetor Vetor::soma(float a){
+  Vetor ret;
+  ret.x = x + a;
+  ret.y = y + a;
+  return (ret);
+}
 
 
 
