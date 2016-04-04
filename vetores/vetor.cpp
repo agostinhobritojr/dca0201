@@ -59,7 +59,7 @@ Vetor Vetor::soma(float a){
   return (ret);
 }
 
-Vetor Vetor::operator+ (Vetor v2){
+Vetor Vetor::operator+ (const Vetor &v2){
   Vetor ret;
   ret.x = x + v2.x;
   ret.y = y + v2.y;

@@ -22,7 +22,7 @@ int main(){
   v3 = v1 * 10;
   v3.print(); cout << endl;
   cout << v1*v2 << endl;
-  v3 = v1*4 + v1;
+  v3 = v1*4 + 5*v1;
   v3 = 5*v1;
   v3.print(); cout << endl;
   v3 = v1*v1*v2;

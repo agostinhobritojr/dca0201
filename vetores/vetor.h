@@ -37,7 +37,7 @@ public: // visiveis por todos
   Vetor soma(float a);
 
   //sobrecarga do operador +
-  Vetor operator+ (Vetor v2);
+  Vetor operator+ (const Vetor &v2);
 
   // TODO
   // v3 = v1 - v2;
