@@ -12,8 +12,8 @@ int main(){
   cout << n << endl;
   y = w = n;
   cout << y << endl;
-  w = m + n;
-  cout << "soma\n";
+  w = m * n;
+  cout << "mult\n";
   cout << w << endl;
   return 0;
 }

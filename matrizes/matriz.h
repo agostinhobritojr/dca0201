@@ -16,6 +16,7 @@ public:
   void randomize();
   Matriz& operator=(const Matriz &m);
   Matriz operator+(const Matriz &m);
+  Matriz operator*(const Matriz &m);
 };
 
 #endif // MATRIZ_H
