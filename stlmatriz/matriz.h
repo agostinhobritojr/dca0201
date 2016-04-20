@@ -28,6 +28,7 @@ public:
   Matriz(int nl=1, int nc=1);
   void randomize();
   friend ostream& operator<< <T> (ostream &os, Matriz<T> &m);
+  Matriz operator+(Matriz<T> &m);
 };
 
 template <class T>
@@ -35,6 +36,21 @@ Matriz<T>::Matriz(int nl, int nc){
   this->nl = nl; this->nc = nc;
   x = vector< valarray<T> > (nl, valarray<T>(nc));
   srand(time(0));
+}
+
+template <class T>
+Matriz<T> Matriz<T>::operator +(Matriz<T> &m){
+  if(nl == m.nl && nc == m.nc){
+    Matriz<T> ret(nl, nc);
+    for(int i=0; i<nl; i++){
+      ret.x[i] = x[i] + m.x[i];
+    }
+    return ret;
+  }
+  else{
+    Matriz <T> ret;
+    return ret;
+  }
 }
 
 template <class T>
