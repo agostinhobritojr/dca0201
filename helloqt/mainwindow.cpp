@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -25,3 +27,32 @@ void MainWindow::finaliza()
 {
   exit(0);
 }
+
+void MainWindow::copiaTexto()
+{
+  QString s;
+  s = ui->textEditSrc->toPlainText() +
+      ": " +
+      QString::number(ui->horizontalSlider->value());
+  s = ui->textEditSrc->toPlainText() +
+      ": " +
+      QString().setNum(ui->horizontalSlider->value());
+  qDebug() << ui->textEditSrc->toPlainText();
+  ui->textBrowserDst->setText(s);
+}
+
+void MainWindow::editConfig()
+{
+  qDebug() << "chamou";
+}
+
+
+
+
+
+
+
+
+
+
+

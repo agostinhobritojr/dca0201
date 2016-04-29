@@ -20,6 +20,8 @@ private:
 
 public slots:
   void finaliza();
+  void copiaTexto();
+  void editConfig();
 
 };
 
