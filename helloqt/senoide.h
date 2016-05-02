@@ -14,6 +14,9 @@ signals:
 public slots:
 protected:
   void paintEvent(QPaintEvent *e);
+
+private:
+  float Amp, Freq, Angle;
 };
 
 #endif // SENOIDE_H
