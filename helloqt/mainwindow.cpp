@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QString>
+#include "dialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -43,7 +44,15 @@ void MainWindow::copiaTexto()
 
 void MainWindow::editConfig()
 {
-  qDebug() << "chamou";
+  Dialog d; // #include "dialog.h"
+  d.setHorizontalSliderValue(35);
+  if(d.exec() == QDialog::Accepted){
+    qDebug() << d.getHorizontalSliderValue();
+    qDebug() << "clicou ok";
+  }
+  else{
+    qDebug() << "clicou cancel";
+  }
 }
 
 
