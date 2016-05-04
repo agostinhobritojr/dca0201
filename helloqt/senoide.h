@@ -12,11 +12,13 @@ public:
 signals:
 
 public slots:
+  void setVarAngle(int var);
 protected:
   void paintEvent(QPaintEvent *e);
+  void timerEvent(QTimerEvent *e);
 
 private:
-  float Amp, Freq, Angle;
+  float Amp, Freq, Angle, varAngle;
 };
 
 #endif // SENOIDE_H

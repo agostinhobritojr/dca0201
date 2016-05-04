@@ -18,6 +18,52 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QSlider" name="horizontalSliderA">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>A</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QSlider" name="horizontalSliderW">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>W</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QSlider" name="horizontalSliderFi">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>fi</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QSlider" name="horizontalSlider">
@@ -142,6 +188,9 @@
    <extends>QWidget</extends>
    <header>senoide.h</header>
    <container>1</container>
+   <slots>
+    <slot>setVarAngle(int)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources>
@@ -155,8 +204,8 @@
    <slot>finaliza()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>396</y>
+     <x>251</x>
+     <y>478</y>
     </hint>
     <hint type="destinationlabel">
      <x>364</x>
@@ -171,12 +220,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>210</x>
-     <y>91</y>
+     <x>181</x>
+     <y>165</y>
     </hint>
     <hint type="destinationlabel">
-     <x>540</x>
-     <y>97</y>
+     <x>251</x>
+     <y>169</y>
     </hint>
    </hints>
   </connection>
@@ -187,8 +236,8 @@
    <slot>copiaTexto()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>185</x>
-     <y>232</y>
+     <x>173</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
      <x>244</x>
@@ -225,6 +274,22 @@
     <hint type="destinationlabel">
      <x>275</x>
      <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderFi</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>setVarAngle(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>448</x>
+     <y>129</y>
     </hint>
    </hints>
   </connection>
