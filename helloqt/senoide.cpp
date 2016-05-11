@@ -4,6 +4,8 @@
 #include <QPen>
 #include <QColor>
 #include <cmath>
+#include <QMouseEvent>
+#include <QDebug>
 
 Senoide::Senoide(QWidget *parent) : QWidget(parent)
 {
@@ -12,6 +14,7 @@ Senoide::Senoide(QWidget *parent) : QWidget(parent)
   Angle = 0;
   varAngle = 0;
   startTimer(20); // executa o timer a cada 20 ms
+  setMouseTracking(true);
 }
 
 void Senoide::setVarAngle(int var)
@@ -67,7 +70,22 @@ void Senoide::timerEvent(QTimerEvent *e)
   repaint();
 }
 
+void Senoide::mouseMoveEvent(QMouseEvent *e)
+{
+  //qDebug() << e->pos().x() << " " <<
+    //          e->pos().y();
 
+  emit posx(e->pos().x());
+  emit posy(e->pos().y());
+}
+
+void Senoide::setAmp(int a){
+  Amp = a/99.0;
+}
+
+void Senoide::setW(int w){
+  Freq = w;
+}
 
 
 

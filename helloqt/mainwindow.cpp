@@ -17,6 +17,25 @@ MainWindow::MainWindow(QWidget *parent) :
           this,
           SLOT(finaliza()));
           */
+  connect(ui->horizontalSliderA,
+          SIGNAL(valueChanged(int)),
+          ui->widget,
+          SLOT(setAmp(int))
+          );
+  connect(ui->horizontalSliderW,
+          SIGNAL(valueChanged(int)),
+          ui->widget,
+          SLOT(setW(int)));
+
+  connect(ui->widget,
+          SIGNAL(posx(int)),
+          ui->lcdNumberX,
+          SLOT(display(int)));
+  connect(ui->widget,
+          SIGNAL(posy(int)),
+          ui->lcdNumberY,
+          SLOT(display(int)));
+
 }
 
 MainWindow::~MainWindow()

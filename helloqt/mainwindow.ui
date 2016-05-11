@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="30,60">
+   <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="30,60">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -125,7 +125,42 @@
      </layout>
     </item>
     <item>
-     <widget class="Senoide" name="widget" native="true"/>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="100,0">
+      <item>
+       <widget class="Senoide" name="widget" native="true"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLCDNumber" name="lcdNumberX">
+          <property name="segmentStyle">
+           <enum>QLCDNumber::Flat</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcdNumberY">
+          <property name="segmentStyle">
+           <enum>QLCDNumber::Flat</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
