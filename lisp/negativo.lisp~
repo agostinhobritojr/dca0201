@@ -1,2 +1,0 @@
-(setq entrada (open "eye.ppm")) ;; abre para LEITURA
-(setq saida (open "eye-neg.ppm" :direction :output))

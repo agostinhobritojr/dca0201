@@ -1,5 +1,0 @@
-(defun grau2 (a b c)
-  ;; b^2 - 4*a*c
-  (setq delta (- (* b b) (* 4 a c)))
-  (format t "delta = ~S~%" delta)
-  )
