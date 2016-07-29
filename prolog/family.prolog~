@@ -1,0 +1,11 @@
+homem(bart).
+homem(homer).
+mulher(marge).
+mulher(lisa).
+mulher(maggie).
+parental(homer,bart).
+parental(homer,lisa).
+parental(homer,maggie).
+parental(marge,bart).
+parental(marge,lisa).
+parental(marge,maggie).

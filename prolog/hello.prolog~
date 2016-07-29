@@ -1,0 +1,5 @@
+gosta(pedro,maria).
+homem(adao).
+homem(jose).
+homem(antonio).
+vendeu(livro,jose,antonio).
