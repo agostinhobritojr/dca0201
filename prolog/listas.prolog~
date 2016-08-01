@@ -1,0 +1,5 @@
+p([1,2,3]).
+p([4,5,6,7]).
+p([8]).
+membro(X,Y):- Y=[Z|_], X=Z.
+membro(X,Y):- Y=[_|W], membro(X,W).
