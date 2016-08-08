@@ -1,0 +1,17 @@
+;; abre o arquivo flor.ppm e atribui o retorno
+;; a variavel input. Ela sera usada para acessar o
+;; arquivo
+(setq input (open "flor.ppm"))
+(setq magic (read input))
+(setq comment (read-line input))
+(setq larg (read input))
+(setq alt (read input))
+(read input)
+;; abre arquivo para escrita
+;; se o arquivo nao existe, open cria um novo arquivo
+;; se o arquivo existe, open apaga-o e cria um novo
+(setq out (open "saida.ppm" :direction :output))
+(format out "P3~%# fui eu qui fez~%")
+(format out "~D ~D~%255~%" larg alt)
+(close out)
+(close input)
