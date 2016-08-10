@@ -11,6 +11,10 @@
 ;; se o arquivo nao existe, open cria um novo arquivo
 ;; se o arquivo existe, open apaga-o e cria um novo
 (setq out (open "saida.ppm" :direction :output))
+
+(format out "\documentclass[a4paper]{report}")
+(format out "\begin{tikzpicture}")
+
 (format out "P3~%# fui eu qui fez~%")
 (format out "~D ~D~%255~%" larg alt)
 (loop for i from 1 to alt do
