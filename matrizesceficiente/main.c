@@ -13,6 +13,8 @@ int main(void){
   // aloca array com TODA a matriz
   x[0] = (int*) malloc(nl*nc*sizeof(int));
 
+  // ajusta os enderecos das linhas
+  // no array de ponteiros auxiliar
   for(int i=1; i<nl; i++){
     x[i] = x[i-1] + nc;
   }
@@ -27,7 +29,16 @@ int main(void){
     }
     printf("\n");
   }
-
+  // libera espaco para a matriz
+  free(x[0]);
+  free(x);
   return 0;
 }
+
+
+
+
+
+
+
 
