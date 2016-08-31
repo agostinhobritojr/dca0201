@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 class Vetor{
@@ -21,7 +21,26 @@ public:
   float getX(void){
     return x;
   }
+
+  // implementar
+  // setY
+  // getY
+  // angulo
+  // modulo
+  void setY(float my){
+    y = my;
+  }
+
+  float getY(void){
+    return y;
+  }
+
+  float modulo(void){
+    return(sqrt(x*x+y*y));
+  }
+
 }; // <--- maligno
+
 
 int main(void){
   Vetor v1; // v1 eh um objeto da classe Vetor
@@ -31,7 +50,9 @@ int main(void){
   // envia a mensagem getX, esperando o retorno
   // do valor armazenado
   ret = v1.getX();
-  cout << ret;
+  cout << ret << "\n";
+  v1.setY(4);
+  cout << "modulo= " << v1.modulo() << "\n";
   return 0;
 }
 
