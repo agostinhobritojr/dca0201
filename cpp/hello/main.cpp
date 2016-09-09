@@ -1,49 +1,26 @@
+// uso da classe
 #include <iostream>
-#include <cmath>
+
+#include "vetor.h"
 using namespace std;
 
-class Vetor{
-  // somente funcoes da classe podem acessar
-private:
-  float x, y;
-  // usuarios externos da classe podem acessar
-public:
-  // funcoes, funcoes-membro, metodos
-
-  // guarda na variavel x da classe
-  // o valor fornecido atraves da variavel
-  // mx
-  void setX(float mx){
-    x = mx;
-  }
-  // recupera o valor de x e retorna para
-  // seu cliente
-  float getX(void){
-    return x;
-  }
-
-  // implementar
-  // setY
-  // getY
-  // angulo
-  // modulo
-  void setY(float my){
-    y = my;
-  }
-
-  float getY(void){
-    return y;
-  }
-
-  float modulo(void){
-    return(sqrt(x*x+y*y));
-  }
-
-}; // <--- maligno
-
-
 int main(void){
-  Vetor v1; // v1 eh um objeto da classe Vetor
+  // v1 eh um objeto da classe Vetor
+  Vetor v1, v2, v3;
+  Vetor v5(v1);
+  Vetor v6 = v2;
+
+  Vetor v4(5,6);
+  cout << v4.getX() << "," << v4.getY()
+       << "\n";
+
+  v1.setX(1); v1.setY(2);
+  v2.setX(3); v2.setY(4);
+  v3 = v1.soma(v2);
+  cout << "v3 = (" << v3.getX() <<
+          ", " << v3.getY() << ")\n";
+
+  // aloha
   float ret;
   // envia a mensagem setX com o parametro 3
   v1.setX(3);
