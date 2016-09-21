@@ -1,5 +1,8 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
+#include <iostream>
+
+using namespace std;
 
 class Matriz{
   /**
@@ -15,7 +18,17 @@ public:
    * @param _nlin recebe qtde de linhas
    * @param _ncol recebe qtde de colunas
    */
-  Matriz(int _nlin, int _ncol);
+  Matriz(int nlin=0, int ncol=0);
+  ~Matriz();
+  int getlinhas();
+  int getcolunas();
+
+  float& operator()(int i, int j);
+
+  friend ostream& operator<< (ostream& os, Matriz& m);
+
+  void operator= (Matriz &m);
+
 };
 
 #endif // MATRIZ_H
