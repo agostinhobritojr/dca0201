@@ -35,6 +35,34 @@ Matriz::Matriz(int nlin, int ncol){
   }
 }
 
+Matriz::Matriz(Matriz &m){
+  nlin = m.nlin;
+  ncol = m.ncol;
+  if(nlin == 0 || ncol == 0){
+    x == nullptr;
+    return;
+  }
+  x = new float*[nlin];
+  if(x == NULL){
+    exit(0);
+  }
+  // aloca array para a matriz
+  x[0] = new float[nlin*ncol];
+  if(x[0] == NULL){
+    exit(0);
+  }
+  // ajusta os enderecos do array de
+  // ponteiros auxiliares
+  for(int i=1; i<nlin; i++){
+    x[i] = x[i-1] + ncol;
+  }
+  // copia a matriz o objeto fornecido
+  // para a matriz local
+  for(int i=0; i<nlin*ncol; i++){
+    x[0][i] = m.x[0][i];
+  }
+}
+
 Matriz::~Matriz(){
   if(x != NULL){
     delete [] x[0];
@@ -70,14 +98,99 @@ float& Matriz::operator() (int i, int j){
   exit(0);
 }
 
-void Matriz::operator=(Matriz &m){
+Matriz& Matriz::operator=(const Matriz &m){
+  // O proprio objeto 'm' e o que opera
+  // a funcao 'operator='
+  // Matriz A;
+  // A = A;
+  if(&m == this){
+    return(*this);
+  }
+
+  // Matriz A(3,3), B;
+  // A = B;
+  if(m.nlin == 0 || m.ncol == 0){
+    if(nlin != 0 && ncol != 0){
+      delete [] x[0];
+      delete [] x;
+      x = nullptr;
+      nlin = ncol = 0;
+    }
+    return(*this);
+  }
+
+  // Matriz B ainda nao alocada
+  // Matriz A(3,3), B;
+  // B = A;
+  if(x == nullptr){
+    if(m.nlin == 0 || m.ncol == 0){
+      return (*this);
+    }
+    nlin = m.nlin;
+    ncol = m.ncol;
+    // aloca recursos para armazenar a
+    // matriz a ser copiada
+    x = new float*[nlin];
+    if(x == nullptr){
+      exit(0);
+    }
+    x[0] = new float[nlin*ncol];
+    for(int i=1; i<nlin; i++){
+      x[i] = x[i-1] + ncol;
+    }
+    // copiar a matriz
+    for(int i=0; i<nlin*ncol; i++){
+      x[0][i] = m.x[0][i];
+    }
+    return (*this);
+  }
 
   //. matrizes com tamanhos diferentes
   //.. liberar memoria ja alocada
   //.. alocar novos recursos
+  if(nlin != m.nlin || ncol!= m.ncol){
+    // memoria de array eh alocada com
+    // new[]. Deve ser liberada com
+    // delete[]
+    delete [] x[0];
+    delete [] x;
 
+    nlin = m.nlin;
+    ncol = m.ncol;
 
-  nlin = m.nlin;
-  ncol = m.ncol;
+    // aloca a nova matriz
+    x = new float*[nlin];
+    if(x == nullptr){
+      exit(0);
+    }
+    x[0] = new float[nlin*ncol];
+    if(x[0] == nullptr){
+      exit(0);
+    }
+    for(int i=1; i<nlin; i++){
+      x[i] = x[i-1] + ncol;
+    }
+    // copia a matriz m.x -> x
+    for(int i=0; i<nlin*ncol; i++){
+      x[0][i] = m.x[0][i];
+    }
+  }
+  // situacao onde as dimensoes das
+  // matrizes sao identicas
+  else{
+    for(int i=0; i<nlin*ncol; i++){
+      x[0][i] = m.x[0][i];
+    }
+  }
+  return(*this);
+}
+
+Matriz Matriz::operator+(Matriz &m){
+  // supor que as matrizes tem o mesmo tamanho
+  Matriz ret(nlin, ncol);
+  for(int i=0; i<nlin*ncol; i++){
+    ret.x[0][i] = x[0][i] + m.x[0][i];
+  }
+  return(ret);
 }
 
