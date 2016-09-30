@@ -23,6 +23,16 @@ int main(){
 
   sort(comeco, posUltimo);
 
+  // procurar se o inteiro '3' está no vetor
+  // se estiver, remove-lo
+
+  vector<int>::iterator it;
+  // encontra um iterador para o elemento
+  // cujo valor eh 3.
+  it = find(v.begin(), v.end(), 3);
+  cout << "achei o elemento: " << *it << endl;
+  v.erase(it);
+  v.insert(v.begin()+3,3);
   for(comeco = v.begin(); comeco!=v.end(); comeco++){
     cout << *comeco << ", ";
   }
