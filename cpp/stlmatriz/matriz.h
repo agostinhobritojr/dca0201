@@ -25,12 +25,26 @@ public:
   void randomize();
   friend ostream& operator<< <T> (ostream& os,
                                    Matriz<T> &m);
-
+  Matriz operator+(Matriz<T> &m);
 };
+
+template <class T>
+Matriz<T> Matriz<T>::operator+(Matriz<T> &m){
+  if(nl == m.nl && nc == m.nc){
+    Matriz<T> ret(nl, nc);
+    for(int i=0; i<nl; i++){
+      ret.x[i] = x[i] + m.x[i];
+    }
+    return(ret);
+  }
+  else{
+    Matriz<T> ret;
+    return(ret);
+  }
+}
 
 template<class T>
 ostream& operator<<(ostream& os, Matriz<T> &m){
-  cout << "nlinhas = " << m.nl << endl;
   for(int i=0; i<m.nl; i++){
     for(int j=0; j<m.nc; j++){
       os << m.x[i][j] << " ";
@@ -55,6 +69,7 @@ void Matriz<T>::randomize(){
     }
   }
 }
+
 
 #endif // MATRIZ_H
 
