@@ -58,8 +58,7 @@ int main(){
   try{
     z = geometrica(x,y);
     cout << "geometrica: " << z << endl;
-    z = harmonica(x,y);
-    cout << "harmonica : " << z << endl;
+    // mais codigo
   }
   catch(const char* e){
     cout << e << endl;
@@ -76,7 +75,7 @@ int main(){
 
   try{
     z = harmonica(x,y);
-//    cout << "harmonica : " << z << endl;
+    cout << "harmonica : " << z << endl;
   }
   catch(const char* e){
     cout << e << endl;
