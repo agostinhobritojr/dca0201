@@ -23,3 +23,27 @@ void MainWindow::finaliza()
 {
   exit(0);
 }
+
+void MainWindow::copiaTexto()
+{
+  ui->textEditRight->setPlainText(
+        ui->textEditLeft->toPlainText());
+}
+
+void MainWindow::mostraLcd(int value)
+{
+  ui->lcdNumber->display(value);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

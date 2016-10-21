@@ -17,6 +17,8 @@ public:
 
 public slots:
   void finaliza(void);
+  void copiaTexto(void);
+  void mostraLcd(int value);
 
 private:
   Ui::MainWindow *ui;
