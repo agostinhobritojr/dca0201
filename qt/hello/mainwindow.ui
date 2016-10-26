@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
-    <height>520</height>
+    <width>711</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -85,7 +85,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,100">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,100">
       <item>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
@@ -133,6 +133,32 @@
        </layout>
       </item>
       <item>
+       <widget class="QLCDNumber" name="lcdNumberX">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="segmentStyle">
+         <enum>QLCDNumber::Flat</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLCDNumber" name="lcdNumberY">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="segmentStyle">
+         <enum>QLCDNumber::Flat</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="Plotter" name="widgetPlotter" native="true"/>
       </item>
      </layout>
@@ -144,7 +170,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>618</width>
+     <width>711</width>
      <height>23</height>
     </rect>
    </property>
@@ -153,6 +179,7 @@
      <string>File</string>
     </property>
     <addaction name="actionKill"/>
+    <addaction name="actionDialogo"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -176,6 +203,11 @@
    </property>
    <property name="toolTip">
     <string>Finaliza a Interface</string>
+   </property>
+  </action>
+  <action name="actionDialogo">
+   <property name="text">
+    <string>Dialogo</string>
    </property>
   </action>
  </widget>
@@ -251,7 +283,7 @@
    <slot>setAmplitude(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>358</x>
+     <x>365</x>
      <y>85</y>
     </hint>
     <hint type="destinationlabel">
@@ -267,7 +299,7 @@
    <slot>setFrequencia(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
+     <x>365</x>
      <y>106</y>
     </hint>
     <hint type="destinationlabel">
@@ -276,10 +308,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionDialogo</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mostraDialogo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>282</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>copiaTexto()</slot>
   <slot>mostraLcd(int)</slot>
   <slot>finaliza()</slot>
+  <slot>mostraDialogo()</slot>
  </slots>
 </ui>

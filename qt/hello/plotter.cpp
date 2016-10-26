@@ -4,12 +4,25 @@
 #include <QPen>
 #include <QColor>
 #include <cmath>
+#include <QMouseEvent>
+
 
 Plotter::Plotter(QWidget *parent) : QWidget(parent){
   freq = 1;
   ampl = 1.0;
-  veloc = 0;
+  velocidade = 0.0;
   teta = 0.0;
+  startTimer(100);
+  setMouseTracking(true); // habilita o rastreio do mouse
+}
+
+void Plotter::timerEvent(QTimerEvent *e){
+  teta += velocidade;
+  repaint();
+}
+
+void Plotter::setVelocidade(int velocidade){
+  this->velocidade = velocidade/100.0;
 }
 
 void Plotter::paintEvent(QPaintEvent *e){
@@ -71,6 +84,11 @@ void Plotter::paintEvent(QPaintEvent *e){
     y1 = y2;
   }
 
+}
+
+void Plotter::mouseMoveEvent(QMouseEvent *e){
+  emit posx(e->x());
+  emit posy(e->y());
 }
 
 void Plotter::setAmplitude(int ampl)

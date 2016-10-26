@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <cstdlib>
+#include "dialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -11,6 +12,21 @@ MainWindow::MainWindow(QWidget *parent) :
           SIGNAL(clicked(bool)),
           this,
           SLOT(finaliza()));
+
+  connect(ui->horizontalSliderVeloc,
+          SIGNAL(valueChanged(int)),
+          ui->widgetPlotter,
+          SLOT(setVelocidade(int)));
+
+  connect(ui->widgetPlotter,
+          SIGNAL(posx(int)),
+          ui->lcdNumberX,
+          SLOT(display(int)));
+
+  connect(ui->widgetPlotter,
+          SIGNAL(posy(int)),
+          ui->lcdNumberY,
+          SLOT(display(int)));
 
 }
 
@@ -33,6 +49,12 @@ void MainWindow::copiaTexto()
 void MainWindow::mostraLcd(int value)
 {
   ui->lcdNumber->display(value);
+}
+
+void MainWindow::mostraDialogo()
+{
+  Dialog d;
+  d.exec();
 }
 
 
